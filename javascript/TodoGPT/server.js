@@ -50,7 +50,7 @@ app.get('/.well-known/ai-plugin.json', (req, res) => {
     if (err) {
       res.status(404).send('Not found');
     } else {
-      text = text.replace('PLUGIN_HOSTNAME', `http://${host}`);
+      text = text.toString().replace('PLUGIN_HOSTNAME', `http://${host}`);
       res.status(200).type('text/json').send(text);
     }
   });
@@ -62,7 +62,7 @@ app.get('/openapi.yaml', (req, res) => {
     if (err) {
       res.status(404).send('Not found');
     } else {
-      text = text.replace('PLUGIN_HOSTNAME', `http://${host}`);
+      text = text.toString().replace('PLUGIN_HOSTNAME', `http://${host}`);
       res.status(200).type('text/yaml').send(text);
     }
   });
